@@ -1,22 +1,18 @@
-﻿namespace c_LeetCode.Easy.Arr
+﻿namespace c_LeetCode.Easy.Arr;
+
+public class ContainsDuplicate
 {
-    public class ContainsDuplicate
+    public bool ContainsDuplicateimp(int[] nums)
     {
-        public bool ContainsDuplicateimp(int[] nums)
+        var result = new HashSet<int>();
+        // Bước 2: Duyệt qua từng số trong mảng nums
+        foreach (var num in nums)
         {
-            HashSet<int> result = new HashSet<int>();
-            // Bước 2: Duyệt qua từng số trong mảng nums
-            foreach (int num in nums)
-            {
-                if (result.Contains(num))
-                {
-                    return true;
-                }
+            if (result.Contains(num)) return true;
 
-                result.Add(num);
-            }
-
-            return false;
+            result.Add(num);
         }
+
+        return false;
     }
 }
